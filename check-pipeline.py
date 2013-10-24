@@ -33,7 +33,10 @@ def show_job(job):
         attr = ["blink"]
     if color == 'blue':
         color = 'green'
-    print colored(job['name'], color, None, attr), job['builds'][0]['number']
+    build_number = ""
+    if len(job['builds']) > 0:
+        build_number = job['builds'][0]['number']
+    print colored(job['name'], color, None, attr), build_number
     if job.has_key('downstreamProjects') and len(job['downstreamProjects']) > 0:
         show_job(job['downstreamProjects'][0]['name'])
 
