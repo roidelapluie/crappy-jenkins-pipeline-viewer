@@ -1,3 +1,3 @@
 build:
 	virtualenv .
-	bin/pip install -r freeze.txt
+	bash -c "source bin/activate && bin/pip install -r freeze.txt"
