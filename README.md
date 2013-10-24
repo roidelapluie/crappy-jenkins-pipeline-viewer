@@ -15,3 +15,4 @@ then, in your favourite shell
     make
     ./check-pipeline.py first-job
 
+requires python 2.7 and virtualenv
