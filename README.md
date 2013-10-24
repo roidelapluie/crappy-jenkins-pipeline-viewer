@@ -10,6 +10,8 @@ create a settings.py file
     JENKINS_USER="myuser"
     JENKINS_API_TOKEN="myapikey"
 
+then, in your favourite shell
+
     make
     ./check-pipeline.py first-job
 
