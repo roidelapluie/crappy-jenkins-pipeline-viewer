@@ -37,14 +37,17 @@ def show_job(job):
         on_color = 'on_grey'
     if color == 'blue':
         color = 'green'
-    build_number = ""
+    print "\033[K" + colored(job['name'], color, on_color, attr),
     if len(job['builds']) > 0:
         build_number = job['builds'][0]['number']
-    print "\033[K" + colored(job['name'], color, on_color, attr), build_number,
+        print colored('#'+str(build_number), 'grey', 'on_white'),
     try:
-        for change in j.get_build_info(job['name'],build_number)['changeSet']['items']:
-            print change['author']['fullName'],
-            print change['commitId'][:8],
+        changes = j.get_build_info(job['name'],build_number)['changeSet']['items']
+        change = changes[0]
+        print change['author']['fullName'],
+        print change['commitId'][:8],
+        if len(changes) > 1:
+            print '+',len(changes) -1,
     except:
         pass
     print ""
