@@ -32,6 +32,9 @@ def show_job(job):
         colors = color.split('_')
         color = colors[0]
         attr = ["blink"]
+    if color == 'aborted':
+        color = 'red'
+        on_color = 'on_grey'
     if color == 'disabled':
         color = 'white'
         on_color = 'on_grey'
